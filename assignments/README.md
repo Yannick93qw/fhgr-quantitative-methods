@@ -224,3 +224,19 @@ Die Deskreptive Statistik zeigt auf, dass der Mittelwert bei 3.59 und die Standa
 DESCRIPTIVES TKAllg.
 ``` 
 ![Deskreptive Statistik Skalenbildung](./images/deskreptive_statistik_skalenbildung.png)
+
+# Selbststudium 4
+![Selbststudium 04](./images/selbststudium_04.png)
+In welchem Bereich liegen die tatsächlichen Leistungswerte mit einer Wahrscheinlichkeit von 95%?
+
+Um den tatsächlichen Wert zu erhalten, muss der Standardfehler (SE) mit dem z-Wert für das 95% Perzentil multipliziert werden. Anschliessend wird diese Zahl vom MW wehr abgezogen (Untergrenze), bzw. hinzuaddiert (Obergrenze).
+Für das 95% Perzentil beträgt der z-Wert bei 1.645
+![Z-Werte für Konfidenzintervalle](./images/z_werte_konfidenzintervalle.png)
+
+Die Untergrenze ist daher (485 - 1.645 * 2.4) = 485 - 3.948 = 481.
+Die Obergrenze liegt bei 485 + 1.645 * 2.4 = 489
+
+Woran erkennt man in welchen Bereichen sich die Schüler verbessert haben?
+
+Eine Verbesserung ist dann gegeben, wenn sich **die Konfidenzintervalle nicht überschneiden**. In diesem Beispiel wäre das Mathematik und Naturwissenschaften.
+![Erkennung von Verbesserungsbereichen](./images/selbststudium_04_erkennung_verbesserung.png)
