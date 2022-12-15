@@ -1,0 +1,35 @@
+﻿* Encoding: UTF-8.
+*Selbststudium 3, Aufgabe 2.
+FREQUENCIES VARIABLES=TK001_01R TK002_01R TK003_01R TK004_01R TK005_01R TK006_01R
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+DESCRIPTIVES VARIABLES=TK001_01R TK002_01R TK003_01R TK004_01R TK005_01R TK006_01R
+  /STATISTICS=MEAN STDDEV MIN MAX KURTOSIS SKEWNESS.
+RELIABILITY
+  /VARIABLES=TK001_01R, TK002_01R, TK003_01R, TK004_01R, TK005_01R, TK006_01R
+  /SCALE('ALL VARIABLES') ALL
+  /MODEL=ALPHA
+  /STATISTICS=DESCRIPTIVE SCALE
+  /SUMMARY=TOTAL.
+*Bildung einer Skala "TKAllgemein" als neue numerische Variable mit zwei Nachkommastellen.
+numeric TKAllg(f4.2). 
+var lab TKAllg "Nutzen DK für Allgemeinheit". 
+val lab TKAllg
+ 1 "Stimme überhaupt nicht zu"
+ 5 "Stimme voll zu".
+exe.
+*Berechnung, wenn nicht mehr als 2 fehlende Werte in den Variablen auftauchen. 
+compute TKAllg=MEAN.2(TK001_01R, TK002_01R, TK003_01R, TK004_01R, TK005_01R, TK006_01R).
+*Ausgabe der Statistiken dazu. 
+FREQUENCIES VARIABLES=TKAllg
+  /HISTOGRAM NORMAL
+  /ORDER=ANALYSIS.
+PPLOT
+  /VARIABLES=TKAllg
+  /NOLOG
+  /NOSTANDARDIZE
+  /TYPE=Q-Q
+  /FRACTION=BLOM
+  /TIES=MEAN
+  /DIST=NORMAL.
+DESCRIPTIVES TKAllg.

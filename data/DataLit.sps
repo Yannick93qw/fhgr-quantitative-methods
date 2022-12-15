@@ -7,7 +7,7 @@ SET LOCALE='en_UK'.
 SET DECIMAL=DOT.
 GET DATA
  /TYPE=TXT
- /FILE= '\\edu.local\FHGR_Home\_homema\husfeldtvera\Documents\Lehre\Statistik\HS2022\Daten\DataLit.dat'
+ /FILE= 'C:\Users\yhutter\GitRepos\fhgr-quantitative-methods\data\DataLit.dat'
  /DELCASE=LINE
  /DELIMITERS=","
  /QUALIFIER="'"
@@ -1019,4 +1019,9 @@ SAVE TRANSLATE OUTFILE='\\edu.local\FHGR_Home\_homema\husfeldtvera\Documents\Leh
 
 
 FREQUENCIES VARIABLES=W006 W007 W008 W009
+  /ORDER=ANALYSIS.
+
+DATASET ACTIVATE DataSet1.
+FREQUENCIES VARIABLES=alter
+  /HISTOGRAM NORMAL
   /ORDER=ANALYSIS.
